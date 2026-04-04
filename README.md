@@ -151,6 +151,18 @@ skills/emdash/
 - **EmDash:** v0.1.0+
 - **Deployment:** Cloudflare (D1 + R2 + Workers) or self-hosted (SQLite + local storage)
 
+## Updating
+
+Skills are not auto-updated after import. To get the latest version:
+
+```bash
+cd ~/.paperclip/local-companies/emdash-skills
+git pull
+npx paperclipai company import --from ~/.paperclip/local-companies/emdash-skills --collision replace
+```
+
+This pulls the latest changes from GitHub and re-imports with updated skill files. Your agent configurations (env vars, assignments) are preserved — only skill content is replaced.
+
 ## Related
 
 - [emdash-blog-team](https://github.com/ScaleLeanChris/emdash-blog-team) — Ready-to-import 5-agent company that uses this skill (CEO, Website Manager, Content Writer, SEO Specialist, Distribution Manager)
