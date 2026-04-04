@@ -1,0 +1,4 @@
+interface:
+  display_name: "EmDash CMS"
+  short_description: "Manage an emdash blog — content, media, SEO, taxonomies, strategy, and distribution"
+  default_prompt: "Help me manage my emdash blog. I need to create, edit, publish, and promote content."
