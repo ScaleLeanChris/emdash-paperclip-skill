@@ -7,28 +7,31 @@ Standard blog taxonomy setup:
 ### 1. Categories (hierarchical)
 
 ```
-taxonomy_create_term({ taxonomy: "categories", slug: "engineering", label: "Engineering" })
-taxonomy_create_term({ taxonomy: "categories", slug: "frontend", label: "Frontend", parentId: "engineering-id" })
-taxonomy_create_term({ taxonomy: "categories", slug: "backend", label: "Backend", parentId: "engineering-id" })
-taxonomy_create_term({ taxonomy: "categories", slug: "product", label: "Product" })
+taxonomy_create_term({ taxonomy: "category", slug: "engineering", label: "Engineering" })
+taxonomy_create_term({ taxonomy: "category", slug: "frontend", label: "Frontend", parentId: "engineering-id" })
+taxonomy_create_term({ taxonomy: "category", slug: "backend", label: "Backend", parentId: "engineering-id" })
+taxonomy_create_term({ taxonomy: "category", slug: "product", label: "Product" })
 ```
 
 ### 2. Tags (flat)
 
 ```
-taxonomy_create_term({ taxonomy: "tags", slug: "javascript", label: "JavaScript" })
-taxonomy_create_term({ taxonomy: "tags", slug: "typescript", label: "TypeScript" })
-taxonomy_create_term({ taxonomy: "tags", slug: "react", label: "React" })
+taxonomy_create_term({ taxonomy: "tag", slug: "javascript", label: "JavaScript" })
+taxonomy_create_term({ taxonomy: "tag", slug: "typescript", label: "TypeScript" })
+taxonomy_create_term({ taxonomy: "tag", slug: "react", label: "React" })
 ```
 
 ### 3. Assign to content
 
 ```
-PUT /content/posts/{id}/terms/categories
+PUT /content/posts/{id}/terms/category
 Body: { "termIds": ["frontend-id"] }
 
-PUT /content/posts/{id}/terms/tags
+PUT /content/posts/{id}/terms/tag
 Body: { "termIds": ["javascript-id", "react-id"] }
+```
+
+**Note:** Term assignment via REST API has not been verified on all deployments. If this endpoint returns 404, assign terms through the emdash admin UI instead. The MCP tools do not support term assignment.
 ```
 
 ## Navigation Menu Setup

@@ -58,14 +58,16 @@ DELETE /taxonomies/{name}/terms/{slug}
 
 Cannot delete a term that has children. Remove or reparent children first.
 
-## Assign Terms to Content (REST only)
+## Assign Terms to Content (REST only — unverified)
 
 ```
 PUT /content/{collection}/{id}/terms/{taxonomy}
 Body: { "termIds": ["term-id-1", "term-id-2"] }
 ```
 
-This **replaces** all terms for that taxonomy on the content item. To add a term, include all existing term IDs plus the new one.
+**Warning:** This endpoint returned 404 during integration testing on a Cloudflare-deployed instance. It may not be available on all deployments. If it fails, assign terms through the emdash admin UI.
+
+If available, this **replaces** all terms for that taxonomy on the content item. To add a term, include all existing term IDs plus the new one.
 
 ---
 

@@ -1,5 +1,20 @@
 # SEO Gotchas
 
+## SEO Must Be Enabled Per-Collection
+
+By default, collections do **not** have SEO enabled. Attempting to set the `seo` field on content will return:
+
+> `VALIDATION_ERROR: Collection "posts" does not have SEO enabled`
+
+Enable SEO on a collection first:
+
+```bash
+PUT /_emdash/api/schema/collections/posts
+Body: { "hasSeo": true }
+```
+
+This is an ADMIN-only operation. Check `hasSeo` in the collection schema before attempting to set SEO metadata.
+
 ## No Dedicated SEO MCP Tools
 
 SEO metadata is managed through content create/update calls (the `seo` field). Redirects and 404 monitoring are REST-only. There are no standalone SEO MCP tools.

@@ -114,6 +114,16 @@ Moves to trash. Recoverable via `content_restore`.
 **REST:** `POST /content/{collection}/{id}/publish`
 **CLI:** `emdash content publish <collection> <id>`
 
+**Important:** The REST endpoint requires an empty JSON body `{}` and `Content-Type: application/json` header. A POST with no body will fail silently.
+
+```bash
+curl -X POST \
+  -H "Authorization: Bearer $EMDASH_API_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{}' \
+  "$EMDASH_URL/_emdash/api/content/posts/{id}/publish"
+```
+
 Makes content live immediately. Syncs full-text search index.
 
 ## Unpublish
@@ -198,9 +208,11 @@ POST /admin/comments/bulk                         # Bulk actions
      Body: { "ids": [...], "action": "approve|spam|trash|delete" }
 ```
 
-## Set Taxonomy Terms on Content (REST only)
+## Set Taxonomy Terms on Content (REST only — unverified)
 
 ```
 PUT /content/{collection}/{id}/terms/{taxonomy}
 Body: { "termIds": ["term-id-1", "term-id-2"] }
 ```
+
+**Warning:** This endpoint returned 404 in integration testing. See `references/taxonomy/gotchas.md` for details. Use the emdash admin UI if this endpoint is not available. Use **singular** taxonomy names (`category`, `tag`).

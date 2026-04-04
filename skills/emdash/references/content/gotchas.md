@@ -145,6 +145,17 @@ POST /search/rebuild
 
 This is an admin-only operation.
 
+## Publish Requires Empty JSON Body
+
+The REST publish/unpublish/schedule endpoints require `Content-Type: application/json` and an empty body `{}`. A POST with no body returns an empty response and may fail silently.
+
+## DELETE Requests May Be CSRF-Blocked
+
+On Cloudflare-deployed instances, DELETE requests via API token may return `403 "Cross-site DELETE form submissions are forbidden"`. Workarounds:
+- Use the emdash admin UI for delete operations
+- Ensure requests include an `Origin` header matching the emdash instance domain
+- Use MCP tools (`content_delete`, `content_permanent_delete`) which handle auth differently
+
 ## Translation Gotchas
 
 - Non-translatable fields (defined in schema) sync across all translations in a group automatically

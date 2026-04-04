@@ -28,13 +28,17 @@ Include `seo` in the create or update call:
 
 ### 3. Assign Taxonomy Terms
 
+Use **singular** taxonomy names (`category`, `tag`):
+
 ```
-PUT /content/posts/{id}/terms/categories
+PUT /content/posts/{id}/terms/category
 Body: { "termIds": ["cat-id-1"] }
 
-PUT /content/posts/{id}/terms/tags
+PUT /content/posts/{id}/terms/tag
 Body: { "termIds": ["tag-id-1", "tag-id-2"] }
 ```
+
+**Note:** This endpoint may not be available on all deployments (returned 404 in testing). Use the emdash admin UI as fallback.
 
 ### 4. Review Draft
 
