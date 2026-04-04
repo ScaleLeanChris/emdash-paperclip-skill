@@ -139,6 +139,20 @@ Rich text is stored as **Portable Text** (JSON), not HTML. This is critical — 
 | EDITOR | 40 | Edit/publish any content, manage taxonomies |
 | ADMIN | 50 | Everything: schema, users, settings, plugins |
 
+## What Agents Can and Cannot Change
+
+Agents control **content and structure** (data layer), not **visual design** (code layer):
+
+| Can do via API | Cannot do via API |
+|---------------|-------------------|
+| Site title and tagline (`PUT /settings`) | Change CSS, colors, fonts, spacing |
+| Reusable sections (hero, CTA blocks) | Switch templates (blog → portfolio) |
+| Widget areas and widgets (sidebar, footer) | Modify component layout or header style |
+| Navigation menus | Install or change themes |
+| Content schema (add fields, collections) | Edit Astro template code |
+
+Design changes require modifying the Astro source code in the site repository and redeploying. This is by design — emdash treats visual design as code and content as data.
+
 ## Troubleshooting
 
 - **401 Unauthorized:** Token expired or missing scopes. Check `emdash whoami`.
