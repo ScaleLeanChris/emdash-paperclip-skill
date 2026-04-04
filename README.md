@@ -151,6 +151,13 @@ skills/emdash/
 - **EmDash:** v0.1.0+
 - **Deployment:** Cloudflare (D1 + R2 + Workers) or self-hosted (SQLite + local storage)
 
+## Related
+
+- [emdash-blog-team](https://github.com/ScaleLeanChris/emdash-blog-team) — Ready-to-import 5-agent company that uses this skill (CEO, Website Manager, Content Writer, SEO Specialist, Distribution Manager)
+- [emdash CMS](https://github.com/emdash-cms/emdash) — The CMS itself
+- [Paperclip](https://paperclip.ai) — Multi-agent coordination platform
+- [paperclip.space](https://paperclip.space) — Paperclip community hub, where this package is listed
+
 ## License
 
 MIT
