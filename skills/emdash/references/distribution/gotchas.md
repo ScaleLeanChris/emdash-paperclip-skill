@@ -11,9 +11,12 @@ The exact path depends on the Astro template. Common patterns:
 
 Check the site's routing configuration if unsure.
 
-## Hermes Channel IDs
+## Channel Configuration
 
-Hermes channels are identified by conversation IDs, not names. Use `mcp__hermes__channels_list()` to discover available channels and their IDs before sending.
+Distribution channels are configured per-instance. The agent should:
+1. Check what messaging/social tools are available in its environment
+2. Adapt distribution strategy to available channels
+3. Not assume any specific platform is connected
 
 ## Don't Spam Channels
 
@@ -53,6 +56,6 @@ Always check post length before sending.
 Best posting times vary by platform and audience. General guidelines:
 - Twitter/X: Weekdays 8-10am, 12-1pm
 - LinkedIn: Tuesday-Thursday 8-10am
-- Discord/Slack: When the community is active (check history)
+- Community channels: When the community is active (check history)
 
 Stagger distribution over multiple days for maximum reach.

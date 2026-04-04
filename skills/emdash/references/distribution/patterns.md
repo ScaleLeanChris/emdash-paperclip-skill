@@ -20,11 +20,7 @@ After publishing a post, distribute across channels:
    - Discord/Slack: Brief intro + link
    - Email newsletter: Summary + CTA
 
-4. Distribute via Hermes:
-   mcp__hermes__messages_send({
-     conversation: "channel-id",
-     text: "New post: Title\n\nBrief description...\n\nRead more: https://blog.example.com/slug"
-   })
+4. Post to each channel using available tools
 ```
 
 ## Social Media Templates
@@ -97,13 +93,13 @@ Stagger distribution to maximize reach:
 
 ```
 Day 0 (publish day):
-  - Publish post on blog
+  - Publish post on site
   - Share on Twitter/X
-  - Share in Discord/Slack community
+  - Share in community channels
 
 Day 1:
   - Share on LinkedIn with professional angle
-  - Post in relevant subreddits/forums
+  - Post in relevant forums
 
 Day 3:
   - Include in weekly newsletter
@@ -112,20 +108,3 @@ Day 7:
   - Re-share on Twitter with different angle
   - Share key takeaway as standalone social post
 ```
-
-## Hermes Multi-Channel Distribution
-
-Use Hermes to distribute across all connected platforms:
-
-```
-1. List available channels:
-   mcp__hermes__channels_list()
-
-2. For each relevant channel, craft and send:
-   mcp__hermes__messages_send({
-     conversation: "channel-id",
-     text: "platform-appropriate message"
-   })
-```
-
-Adapt tone and format per platform — don't blast the same message everywhere.

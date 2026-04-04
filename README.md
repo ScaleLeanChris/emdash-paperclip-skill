@@ -11,7 +11,7 @@ Assign this skill to any Paperclip agent and it can:
 - **Optimize SEO** — meta tags, slugs, redirects, 404 monitoring
 - **Organize content** with categories, tags, custom taxonomies, and navigation menus
 - **Plan content strategy** — editorial calendars, topic research, content audits
-- **Distribute content** across social media, newsletters, and messaging platforms via Hermes
+- **Distribute content** across social media, newsletters, and messaging platforms
 
 ## How agents connect to emdash
 
@@ -128,10 +128,10 @@ skills/emdash/
     │   ├── README.md
     │   ├── patterns.md               #   Content audit, pillars, calendar, topic research
     │   └── gotchas.md                #   Over-scheduling, cannibalization, timezone
-    └── distribution/                 # Multi-channel promotion (uses Hermes)
+    └── distribution/                 # Multi-channel promotion
         ├── README.md
         ├── patterns.md               #   Post-publish workflow, templates, repurposing
-        └── gotchas.md                #   URL construction, Hermes channels, character limits
+        └── gotchas.md                #   URL construction, channel config, character limits
 ```
 
 ## What emdash is
