@@ -49,52 +49,28 @@ The token will look like `ec_pat_...` — save it, you'll only see it once.
 
 ### 3. Configure agent environment variables
 
-After importing a company that uses this skill (or when creating/updating an agent), set the environment variables via the Paperclip API:
+Each agent that uses the emdash skill needs two env vars:
 
-```bash
-# Find the agent ID
-curl http://127.0.0.1:3100/api/companies/{companyId}/agents
+| Variable | Kind | Description |
+|----------|------|-------------|
+| `EMDASH_URL` | config | Base URL of your emdash instance |
+| `EMDASH_API_TOKEN` | secret | Personal Access Token (`ec_pat_*`) |
 
-# Set the env vars on each agent that uses the emdash skill
-curl -X PATCH "http://127.0.0.1:3100/api/agents/{agentId}" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "adapterConfig": {
-      "env": {
-        "EMDASH_URL": "https://your-emdash-instance.example.com",
-        "EMDASH_API_TOKEN": "ec_pat_your_token_here"
-      }
-    }
-  }'
-```
-
-**Note:** There is currently no UI for setting agent environment variables. Use the REST API as shown above. The env vars are stored encrypted in the Paperclip database and injected into the agent's process at runtime.
+Set these through the Paperclip UI (agent settings → adapter config → environment variables) or via the Paperclip API.
 
 ### 4. Assign the skill to an agent
 
-Add `"emdash"` to the agent's `skills` array in the manifest or via the API:
+Add `"emdash"` to the agent's `skills` array in the company manifest:
 
-```json
-{
-  "slug": "my-blog-agent",
-  "skills": ["emdash"],
-  "adapterConfig": {
-    "env": {
-      "EMDASH_URL": "https://blog.example.com",
-      "EMDASH_API_TOKEN": "ec_pat_..."
-    }
-  }
-}
+```yaml
+# In AGENTS.md frontmatter
+skills:
+  - emdash
 ```
 
 ### 5. Verify the connection
 
-The agent will automatically test connectivity on first use. You can also verify manually:
-
-```bash
-curl -s -H "Authorization: Bearer $EMDASH_API_TOKEN" \
-  "$EMDASH_URL/_emdash/api/auth/me"
-```
+Trigger a heartbeat. The agent will test connectivity by calling `schema_list_collections` via MCP on first use.
 
 ## Skill structure
 

@@ -9,22 +9,7 @@
 
 ### Setting env vars in Paperclip
 
-Set these on each agent via the Paperclip API using `adapterConfig.env`:
-
-```bash
-curl -X PATCH "http://127.0.0.1:3100/api/agents/{agentId}" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "adapterConfig": {
-      "env": {
-        "EMDASH_URL": "https://your-blog.example.com",
-        "EMDASH_API_TOKEN": "ec_pat_your_token_here"
-      }
-    }
-  }'
-```
-
-Values are stored encrypted and injected into the agent's process at runtime.
+These are declared as required inputs in `.paperclip.yaml`. Set them on each agent through the Paperclip UI (agent settings → adapter config → environment variables) or via the Paperclip API. Values are stored encrypted and injected into the agent's process at runtime.
 
 ## MCP Server (Preferred)
 
