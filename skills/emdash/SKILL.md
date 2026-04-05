@@ -16,13 +16,9 @@ Verify these env vars are set before any operation:
 - `EMDASH_URL` — Base URL of the emdash instance (e.g., `https://blog.example.com`)
 - `EMDASH_API_TOKEN` — Personal Access Token (`ec_pat_*`) with appropriate scopes
 
-Test connectivity:
+Test connectivity by calling the `content_list` MCP tool or `schema_list_collections`. If MCP is not available, see `references/connection.md` for REST API fallback.
 
-```bash
-curl -s -H "Authorization: Bearer $EMDASH_API_TOKEN" "$EMDASH_URL/_emdash/api/auth/me"
-```
-
-For full connection setup (MCP, REST, CLI), see `references/connection.md`.
+**Use MCP tools as the primary interface.** Only fall back to REST API when MCP doesn't cover the operation (SEO, redirects, settings).
 
 ## Interface Priority
 
